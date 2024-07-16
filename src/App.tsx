@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import * as C from './App.styles';
+import { Item } from './types';
+import { ListItem } from './components/ListItem';
+import { AddArea } from './components/AddArea';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [list, setList] = useState<Item[]>([
+    { id: 1, name: 'Comprar o pão na padaria', done: false },
+    { id: 2, name: 'Comprar um bolo na padaria', done: true },
+  ]);
+
+  const handleAddTask = (taskName: string) => {
+    const newList = [...list];
+    newList.push({
+      id: list.length + 1,
+      name: taskName,
+      done: false
+    });
+    setList(newList);
+  }
+
+  const handleTaskChange = (id: number, done: boolean) => {
+    const newList = list.map(item => 
+      item.id === id ? { ...item, done } : item
+    );
+    setList(newList);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <C.Container>
+      <C.Area>
+        <C.Header>To-do List | Desafio 5</C.Header>
+
+        <AddArea onEnter={handleAddTask} />
+
+        {list.map(item => (
+          <ListItem
+            key={item.id}
+            item={item}
+            onChange={handleTaskChange}
+          />
+        ))}
+
+      </C.Area>
+    </C.Container>
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
