@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# To-Do List | Desafio Inova Maranhão
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de lista de tarefas (To-Do List) desenvolvido com React e TypeScript. O objetivo deste projeto é demonstrar habilidades em desenvolvimento frontend usando React, gerenciamento de estado e tipagem com TypeScript.
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto To-Do List permite aos usuários adicionar, marcar como concluídas e remover tarefas. É uma aplicação simples e eficiente para gerenciar suas tarefas diárias.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Adicionar uma nova tarefa
+- Marcar uma tarefa como concluída
+- Remover uma tarefa
+- Listar todas as tarefas
+- Persistência de dados no local storage
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias Utilizadas
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário
+- **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática
+- **Styled-Components**: Biblioteca para estilização de componentes React
+- **Vite**: Ferramenta de construção para desenvolvimento frontend
+- **React Icons**: Biblioteca de ícones para React
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
