@@ -21,5 +21,3 @@ O projeto To-Do List permite aos usuários adicionar, marcar como concluídas e 
 - **Styled-Components**: Biblioteca para estilização de componentes React
 - **Vite**: Ferramenta de construção para desenvolvimento frontend
 - **React Icons**: Biblioteca de ícones para React
-
-

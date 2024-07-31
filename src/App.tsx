@@ -5,10 +5,7 @@ import { ListItem } from './components/ListItem';
 import { AddArea } from './components/AddArea';
 
 const App = () => {
-  const [list, setList] = useState<Item[]>([
-    { id: 1, name: 'Comprar o pão na padaria', done: false },
-    { id: 2, name: 'Comprar um bolo na padaria', done: true },
-  ]);
+  const [list, setList] = useState<Item[]>(JSON.parse(localStorage.getItem('items') || "[]"));
 
   const handleAddTask = (taskName: string) => {
     const newList = [...list];
@@ -18,19 +15,21 @@ const App = () => {
       done: false
     });
     setList(newList);
+    localStorage.setItem('items', JSON.stringify(newList));
   }
 
   const handleTaskChange = (id: number, done: boolean) => {
-
-    const newList = list.map(item => 
+    const newList = list.map(item =>
       item.id === id ? { ...item, done } : item
     );
     setList(newList);
+    localStorage.setItem('items', JSON.stringify(newList));
   }
 
   const handleDeleteTask = (id: number) => {
-    const newList = list.filter(item => item.id!== id);
+    const newList = list.filter(item => item.id !== id);
     setList(newList);
+    localStorage.setItem('items', JSON.stringify(newList));
   }
 
   return (
@@ -42,7 +41,6 @@ const App = () => {
 
         {list.map(item => (
           <ListItem
-          
             key={item.id}
             item={item}
             onChange={handleTaskChange}
@@ -56,13 +54,3 @@ const App = () => {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
