@@ -21,9 +21,15 @@ const App = () => {
   }
 
   const handleTaskChange = (id: number, done: boolean) => {
+
     const newList = list.map(item => 
       item.id === id ? { ...item, done } : item
     );
+    setList(newList);
+  }
+
+  const handleDeleteTask = (id: number) => {
+    const newList = list.filter(item => item.id!== id);
     setList(newList);
   }
 
@@ -36,9 +42,11 @@ const App = () => {
 
         {list.map(item => (
           <ListItem
+          
             key={item.id}
             item={item}
             onChange={handleTaskChange}
+            onDelete={handleDeleteTask}
           />
         ))}
 
