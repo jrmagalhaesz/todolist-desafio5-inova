@@ -1,23 +1,17 @@
-
 import { FaTrashAlt } from "react-icons/fa";
-
-import IconButton from "./styles"
-
+import IconButton from "./styles";
 
 type Props = {
-
-    onClick: () => void
+    onClick: () => void;
+    disabled: boolean;
 }
 
-
-const DeleteButton = ({onClick}:Props)=>{
+const DeleteButton = ({ onClick, disabled }: Props) => {
     return (
-
-        <IconButton onClick={onClick}>
+        <IconButton onClick={onClick} disabled={disabled}>
             <FaTrashAlt />
-      </IconButton>
+        </IconButton>
     )
 }
 
-
-export default DeleteButton
+export default DeleteButton;

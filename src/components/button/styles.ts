@@ -11,6 +11,8 @@ const IconButton = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 
   &:hover {
     background-color: #3700b3;

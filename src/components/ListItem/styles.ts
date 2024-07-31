@@ -6,6 +6,7 @@ type ContainerProps = {
 
 export const Container = styled.div<ContainerProps>`
     display: flex;
+    justify-content: space-between; 
     background-color: #20212C;
     padding: 10px;
     border-radius: 10px;
@@ -21,5 +22,9 @@ export const Container = styled.div<ContainerProps>`
     label {
         color: #CCC;
         text-decoration: ${({ done }) => done ? 'line-through' : 'initial'};
+        flex-grow: 1; // Faz com que o label ocupe o espaço disponível
     }
 `;
+
+
+
